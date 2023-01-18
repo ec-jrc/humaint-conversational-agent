@@ -1,15 +1,27 @@
 import os.path
-import whisper
 
+import espeakng # TTS
+import whisper # ARS
 
-import sounddevice as sd
+# for recording
+import sounddevice as sd 
 from scipy.io.wavfile import write
+
+# TTS Configuration
+mySpeaker = espeakng.Speaker()
+mySpeaker.voice = 'it'
+mySpeaker.pitch = 120
+mySpeaker.wpm = 140
+mySpeaker.say('Hola, como estas?', wait4prev=True)
+
+# This is ofr waiting until the text finishes
+# mySpeaker.say('I am a demo of the say() method.', wait4prev=True)
 
 fs = 44100  # Sample rate
 seconds = 3  # Duration of recording
 
-print('Recording...')
 myrecording = sd.rec(int(seconds * fs), samplerate=fs, channels=2)
+print('Recording...')
 sd.wait()  # Wait until recording is finished
 print('Recording finished.')
 write('output.wav', fs, myrecording)  # Save as WAV file 
@@ -38,5 +50,19 @@ result = whisper.decode(model, mel, options)
 
 # print the recognized text
 print(result.text)
+
+if 'bien' in result.text:
+    print('me alegro mucho!')
+    mySpeaker.say('me alegro mucho!', wait4prev=True)
+elif 'mal' in result.text:
+    print('vaya...')
+    mySpeaker.say('vaya...', wait4prev=True)
+else:
+    print('aham')
+    mySpeaker.say('aham', wait4prev=True)
+
+print('bueno, me tengo que ir, adios.')
+mySpeaker.say('bueno, me tengo que ir, adios.', wait4prev=True)
+print('end of interaction')
 
 
