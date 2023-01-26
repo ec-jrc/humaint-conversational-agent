@@ -1,0 +1,7 @@
+{
+  "WHISPER_MODEL": "tiny",
+  "LANGUAGE": "Spanish",
+  "BLOCKSIZE": 128000,
+  "SILENCE_THRESHOLD": 400,
+  "SILENCE_RATIO": 100
+}
