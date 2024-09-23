@@ -28,7 +28,7 @@ The repository contains the following files:
 
 ## Use <a name="use"></a>
 Before executing the programs, ensure you have all the credentials configured and all the permissions required to use OpenAI's services, Google Cloud DialogFlow and Google TTS
-We cannot share over this repository the secrets to the Dialogflow instance for this project. You can either build them yourself or write to pedro.frau-amar@ext.ec.europa.eu
+We cannot share over this repository the secrets to the Dialogflow instance for this project. You can either build them yourself or write to jrc-humaint@ec.europa.eu
 
 To start the interaction based on ChatGPT, execute:
 
