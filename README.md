@@ -1,49 +1,46 @@
 # Humaint Conversational Agent
-## Este repositorio contiene el código fuente para el proyecto "Humaint Conversational Agent", que tiene como objetivo proporcionar un agente conversacional para temer interacciones éticas con usuarios (principalmente niños) a través de dos métodos principales: mediante el modelo de lenguaje GPT de OpenAI y mediante historias predefinidas.
+## This repository contains the code for the project Cas4Kids, which objective is to build a conversational agent for ethic interactions with users (mainly children) by using two methods: 
+- Using OpenAi's GPT language model
+- Using predefined stories.
 
-## Contenidos
-1. [Instalación](#instalacion)
-2. [Archivos principales](#archivos-principales)
-3. [Uso](#uso)
-4. [Contribuir](#contribuir)
+## Contents
+1. [Instalation](#instalation)
+2. [Main files](#main-files)
+3. [Use](#use)
+4. [Contribute](#contribute)
 
-## Instalación <a name="instalacion"></a>
-Para instalar las dependencias necesarias para este proyecto, primero asegúrese de tener instalado Python 3.8 o posterior. Luego, puede instalar las dependencias con:
+## Instalation <a name="instalation"></a>
+To install the necessary dependencies for this project, ensure first that you have installed Python 3.8 or later versions. Then, you can install all the dependencies by running:
 
 `pip install -r requirements.txt`
 
-Por otro lado, para el soporte GPU de fast-whisper, se requiere la instalación de CUDA v11.x con CUBLAS v11.x, CUDNN 8.x y ZLIB_DLL
-ver guías de instalación [aquí](https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html)
+Apart from that, for the GPU support of Faster Whisper, the installation of CUDA v11.x with CUBLAS v11.x, CUDNN 8.x and ZLIB_DLL is required. See installation guides [here](https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html)
 
-## Archivos Principales <a name="archivos-principales"></a>
-El repositorio contiene los siguientes archivos principales:
+## Main Files <a name="main-files"></a>
+The repository contains the following files:
 
-- dialogmodule.py: Es el programa principal para la interacción basada en ChatGPT.
-- new_dialogmodule.py: Es el programa principal para la interacción basada en historias predefinidas.
-- ASR_module.py: Módulo responsable de la integración de Whisper (reconocimiento de voz).
-- new_story.py: Proporciona funcionalidades específicas para la creación de historias predefinidas.
-- historias.json: Archivo que contiene las historias predefinidas utilizadas en el programa del punto 2.
-- requirements.txt: Requisitos para el proyecto.
+- dialogmodule.py: Main program for the interaction based on ChatGPT.
+- new_dialogmodule.py: Main program for the interaction based on predefined stories.
+- ASR_module.py: Module responsible for the integration with Whisper (Speech recognition).
+- new_story.py: Gives specific functionalities for the creation of predefined stories.
+- historias.json: File containing the predefined stories.
+- requirements.txt: Requirements of the project.
 
-## Uso <a name="uso"></a>
-Antes de ejecutar los programas, asegúrate de tener configuradas todas las credenciales y permisos necesarios para utilizar los servicios de OpenAI, Google Cloud Dialogflow y Google Text to Speech.
+## Use <a name="use"></a>
+Before executing the programs, ensure you have all the credentials configured and all the permissions required to use OpenAI's services, Google Cloud DialogFlow and Google TTS
+We cannot share over this repository the secrets to the Dialogflow instance for this project. You can either build them yourself or write to pedro.frau-amar@ext.ec.europa.eu
 
-Para iniciar la interacción basada en ChatGPT, ejecuta:
+To start the interaction based on ChatGPT, execute:
 
 `python dialogmodule.py`
 
-Para iniciar la interacción basada en historias predefinidas, ejecuta:
+To start the interaction based on predefined stories, execute:
 
 `python new_dialogmodule.py`
 
 
-## Contribuir <a name="contribuir"></a>
-Las contribuciones son siempre bienvenidas. Antes de hacer cualquier contribución, por favor, asegúrese de leer las directrices y el código de conducta.
+## Contribute <a name="contribute"></a>
+For contributions, please fork the repository.
 
-## Licencia
-
-
-## Contacto
-Si tiene alguna pregunta o problema, no dude en abrir un issue en este repositorio.
-
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
