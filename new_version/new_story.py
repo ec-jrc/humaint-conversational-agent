@@ -1,14 +1,10 @@
-import random
 import json
 import textwrap
 
-from fuzzywuzzy import fuzz, process
-#import new_dialogmodule_test as new_dm
+from difflib import SequenceMatcher
 import new_dialogmodule as new_dm
 import ASR_module as asr
 import string
-import datetime
-
 
 # Acceder al idioma configurado previamente
 CONFIG_PATH = "config.json"
@@ -198,8 +194,8 @@ class StoryBot:
             respuesta_usuario = await new_dm.get_transcription(idioma, conversation_file_name)
             #new_dm.write_to_conversation_file(respuesta_usuario, conversation_file_name, "User")
 
-            # Comparamos la respuesta del usuario con las opciones usando fuzz.token_set_ratio
-            coincidencias = {i: fuzz.token_set_ratio(respuesta_usuario.lower(), option.lower()) for i, option in
+            # Comparamos la respuesta del usuario con las opciones usando difflib
+            coincidencias = {i: SequenceMatcher(None, respuesta_usuario.lower(), option.lower()).ratio() for i, option in
                              enumerate(options)}
 
             # Obtenemos la opción con la mayor coincidencia
@@ -261,8 +257,8 @@ class StoryBot:
         while True:
             respuesta_usuario = input("Ingresa el adjetivo correspondiente al tipo de historia: ")
 
-            # Comparamos la respuesta del usuario con las opciones usando fuzz.token_set_ratio
-            coincidencias = {key: fuzz.token_set_ratio(respuesta_usuario.lower(), value['adjective'].lower()) for
+            # Comparamos la respuesta del usuario con las opciones usando difflib
+            coincidencias = {key: SequenceMatcher(None, respuesta_usuario.lower(), value['adjective'].lower()).ratio() for
                              key, value in story_types.items()}
 
             # Obtenemos la opción con la mayor coincidencia
@@ -312,8 +308,8 @@ class StoryBot:
             respuesta_usuario = await new_dm.get_transcription(idioma,conversation_file_name)
             new_dm.write_to_conversation_file(respuesta_usuario, conversation_file_name, "User")
 
-            # Comparamos la respuesta del usuario con las opciones usando fuzz.token_set_ratio
-            coincidencias = {key: fuzz.token_set_ratio(respuesta_usuario.lower(), value['adjective'].lower()) for
+            # Comparamos la respuesta del usuario con las opciones usando difflib
+            coincidencias = {key: SequenceMatcher(None, respuesta_usuario.lower(), value['adjective'].lower()).ratio() for
                             key, value in story_types.items()}
 
             # Obtenemos la opción con la mayor coincidencia
